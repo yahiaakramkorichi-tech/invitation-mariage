@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Éclat & Amour</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Georgia,serif;
+background:#f7f1e8;
+color:#403329;
+}
+
+header{
+text-align:center;
+padding:45px 20px;
+background:white;
+}
+
+header h1{
+font-size:42px;
+font-weight:normal;
+margin:10px;
+}
+
+.gold{color:#ad8550}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.form{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px #0001;
+}
+
+label{
+display:block;
+font-family:Arial;
+font-size:14px;
+font-weight:bold;
+margin-top:15px;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:6px;
+border:1px solid #ddd0be;
+border-radius:8px;
+font-size:15px;
+}
+
+textarea{
+height:100px;
+}
+
+button{
+width:100%;
+margin-top:20px;
+padding:14px;
+background:#44372b;
+color:white;
+border:0;
+border-radius:8px;
+font-weight:bold;
+font-size:15px;
+}
+
+.invitation{
+margin-top:30px;
+padding:40px 20px;
+text-align:center;
+background:white;
+border:1px solid #d9c19f;
+border-radius:15px;
+box-shadow:0 10px 30px #0001;
+}
+
+.invitation h2{
+font-size:42px;
+font-weight:normal;
+margin:15px 0;
+}
+
+.small{
+font-family:Arial;
+font-size:12px;
+letter-spacing:3px;
+color:#98764d;
+}
+
+.message{
+line-height:1.8;
+color:#65594e;
+}
+
+.date{
+font-family:Arial;
+font-weight:bold;
+color:#98764d;
+margin:20px;
+}
+
+.count{
+font-family:Arial;
+padding:15px;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+margin:20px 0;
+}
+
+.map{
+color:#98764d;
+text-decoration:none;
+font-family:Arial;
+font-weight:bold;
+}
+
+@media(max-width:600px){
+.invitation h2{font-size:34px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="small">INVITATIONS DE MARIAGE NUMÉRIQUES</div>
+<h1>Éclat <span class="gold">&</span> Amour</h1>
+<p>Créez votre invitation de mariage</p>
+</header>
+
+<div class="container">
+
+<div class="form">
+
+<h2>Créer mon invitation</h2>
+
+<label>Prénom du marié</label>
+<input id="groom" value="Amine">
+
+<label>Prénom de la mariée</label>
+<input id="bride" value="Sarah">
+
+<label>Date et heure</label>
+<input id="date" type="datetime-local">
+
+<label>Nom de la salle</label>
+<input id="venue" value="Salle des Fêtes El Bahia">
+
+<label>Lien Google Maps</label>
+<input id="maps" placeholder="Collez ici le lien Google Maps">
+
+<label>Message d'invitation</label>
+<textarea id="message">Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.</textarea>
+
+<button onclick="generer()">Créer mon invitation</button>
+
+</div>
+
+<div class="invitation">
+
+<div class="small">NOUS AVONS LE PLAISIR DE VOUS INVITER</div>
+
+<h2>
+<span id="p1">Amine</span>
+<span class="gold">&</span>
+<span id="p2">Sarah</span>
+</h2>
+
+<p class="message" id="pmessage">
+Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.
+</p>
+
+<div class="date" id="pdate">
+CHOISISSEZ UNE DATE
+</div>
+
+<div class="count" id="count">
+Le compte à rebours apparaîtra ici
+</div>
+
+<p>📍 <b id="pvenue">Salle des Fêtes El Bahia</b></p>
+
+<a id="map" class="map" target="_blank" style="display:none">
+📍 Voir la localisation
+</a>
+
+<p>Votre présence sera notre plus beau cadeau ❤️</p>
+
+<button onclick="partager()">Partager sur WhatsApp</button>
+
+</div>
+
+</div>
+
+<script>
+
+let weddingDate;
+
+function generer(){
+
+let groom=document.getElementById("groom").value;
+let bride=document.getElementById("bride").value;
+let date=document.getElementById("date").value;
+let venue=document.getElementById("venue").value;
+let message=document.getElementById("message").value;
+let maps=document.getElementById("maps").value;
+
+document.getElementById("p1").innerText=groom;
+document.getElementById("p2").innerText=bride;
+document.getElementById("pvenue").innerText=venue;
+document.getElementById("pmessage").innerText=message;
+
+if(date){
+
+weddingDate=new Date(date);
+
+document.getElementById("pdate").innerText=
+weddingDate.toLocaleString("fr-FR",{
+day:"2-digit",
+month:"long",
+year:"numeric",
+hour:"2-digit",
+minute:"2-digit"
+});
+
+}
+
+if(maps){
+
+let link=document.getElementById("map");
+
+link.href=maps;
+link.style.display="inline-block";
+
+}
+
+}
+
+function countdown(){
+
+if(!weddingDate)return;
+
+let difference=weddingDate-new Date();
+
+if(difference<=0){
+
+document.getElementById("count").innerText=
+"C'est le grand jour ! ❤️";
+
+return;
+
+}
+
+let days=Math.floor(difference/86400000);
+let hours=Math.floor(difference/3600000)%24;
+let minutes=Math.floor(difference/60000)%60;
+let seconds=Math.floor(difference/1000)%60;
+
+document.getElementById("count").innerText=
+days+" jours • "+
+hours+" h • "+
+minutes+" min • "+
+seconds+" sec";
+
+}
+
+function partager(){
+
+let groom=document.getElementById("groom").value;
+let bride=document.getElementById("bride").value;
+
+let text=
+"💍 Invitation de mariage\n\n"+
+groom+" & "+bride+
+"\n\nNous avons le plaisir de vous inviter à notre mariage ❤️";
+
+window.open(
+"https://wa.me/?text="+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+setInterval(countdown,100
