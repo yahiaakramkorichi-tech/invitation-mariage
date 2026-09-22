@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Invitation Noir & Or</title>
+<title>Invitation Mariage • Éclat & Amour</title>
 
 <style>
+
+/* =========================
+   BASE
+========================= */
 
 *{
 box-sizing:border-box;
@@ -14,10 +21,25 @@ box-sizing:border-box;
 
 body{
 margin:0;
-background:#090909;
+background:#050505;
 color:#eee;
-font-family:Georgia,serif;
+font-family:Georgia,"Times New Roman",serif;
 }
+
+/* =========================
+   COULEURS OR LUXE
+========================= */
+
+:root{
+--gold-dark:#8f6b22;
+--gold:#c9a64a;
+--gold-light:#f8e7a1;
+--gold-bright:#fff1b8;
+}
+
+/* =========================
+   PAGE CREATION
+========================= */
 
 .creator{
 max-width:600px;
@@ -28,471 +50,448 @@ padding:25px;
 .creator h1{
 text-align:center;
 font-weight:normal;
-color:#d4af37;
+
+background:linear-gradient(
+90deg,
+var(--gold-dark),
+var(--gold-light),
+var(--gold),
+var(--gold-bright),
+var(--gold-dark)
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+
+font-size:32px;
+margin-bottom:25px;
 }
 
+/* =========================
+   FORMULAIRE
+========================= */
+
 .form{
-background:#151515;
+background:
+linear-gradient(
+145deg,
+#17130b,
+#0c0c0c
+);
+
 padding:25px;
-border:1px solid #4d3c12;
-border-radius:12px;
+
+border:1px solid #705823;
+
+border-radius:14px;
+
+box-shadow:
+0 0 25px rgba(201,166,74,.08),
+inset 0 0 30px rgba(201,166,74,.03);
 }
 
 label{
 display:block;
-font-family:Arial;
+
+font-family:Arial,sans-serif;
+
 font-size:13px;
+
 margin-top:15px;
-color:#d4af37;
+
+color:var(--gold-light);
+
+letter-spacing:.4px;
 }
 
-input,textarea{
+input,
+textarea{
 width:100%;
-padding:12px;
+
+padding:13px;
+
 margin-top:6px;
-background:#222;
-border:1px solid #51451f;
-border-radius:6px;
+
+background:#111;
+
+border:1px solid #51431f;
+
+border-radius:7px;
+
 color:white;
+
+font-family:Arial,sans-serif;
+
+outline:none;
+}
+
+input:focus,
+textarea:focus{
+border-color:var(--gold);
+
+box-shadow:0 0 8px rgba(201,166,74,.18);
 }
 
 textarea{
-height:100px;
+height:110px;
+resize:vertical;
 }
+
+/* =========================
+   BOUTON
+========================= */
 
 button{
 width:100%;
-padding:14px;
-margin-top:20px;
-border:0;
-border-radius:6px;
-background:#d4af37;
-color:#111;
-font-weight:bold;
-font-size:15px;
-}
 
-.invitation{
-max-width:700px;
-margin:30px auto;
-min-height:700px;
-padding:60px 25px;
-text-align:center;
+padding:15px;
+
+margin-top:22px;
+
+border:0;
+
+border-radius:7px;
 
 background:
-radial-gradient(circle at top,#29200c 0,#090909 45%);
+linear-gradient(
+135deg,
+#8f6b22,
+#f8e7a1,
+#c9a64a,
+#fff1b8,
+#9f7828
+);
 
-border:1px solid #8b6b20;
-}
+color:#111;
 
-.gold{
-color:#d4af37;
-}
-
-.small{
-font-family:Arial;
-font-size:11px;
-letter-spacing:4px;
-color:#d4af37;
-}
-
-.names{
-font-size:55px;
-font-weight:normal;
-margin:30px 0;
-}
-
-.message{
-max-width:520px;
-margin:30px auto;
-line-height:1.9;
-color:#d5d0c8;
-}
-
-.date{
-font-family:Arial;
-letter-spacing:2px;
-color:#d4af37;
-margin:30px 0;
-}
-
-.count{
-font-family:Arial;
-padding:18px;
-border-top:1px solid #51451f;
-border-bottom:1px solid #51451f;
-margin:25px auto;
-max-width:500px;
-}
-
-.map{
-display:inline-block;
-margin-top:15px;
-color:#d4af37;
-font-family:Arial;
 font-weight:bold;
-text-decoration:none;
+
+font-size:15px;
+
+cursor:pointer;
+
+box-shadow:
+0 5px 18px rgba(201,166,74,.15);
+
+transition:.25s;
 }
+
+button:hover{
+transform:translateY(-1px);
+
+box-shadow:
+0 7px 22px rgba(201,166,74,.25);
+}
+
+/* =========================
+   RESULTAT
+========================= */
 
 .result{
 margin-top:20px;
+
 padding:15px;
-background:#201b0d;
-border:1px solid #51451f;
-font-family:Arial;
+
+background:#17130b;
+
+border:1px solid #705823;
+
+border-radius:7px;
+
+font-family:Arial,sans-serif;
+
 font-size:13px;
+
 word-break:break-all;
+
+color:#eee;
 }
 
-@media(max-width:600px){
-
-.names{
-font-size:40px;
-}
+/* =========================
+   INVITATION
+========================= */
 
 .invitation{
-margin:20px 10px;
-}
 
-}
+max-width:700px;
 
-</style>
-</head>
+margin:30px auto;
 
+min-height:700px;
 
-<body>
+padding:70px 25px;
 
-<div class="creator">
+text-align:center;
 
-<h1>Éclat & Amour</h1>
+background:
 
-<div class="form">
-
-<label>Prénom du marié</label>
-<input id="groom" placeholder="Exemple : Amine">
-
-<label>Prénom de la mariée</label>
-<input id="bride" placeholder="Exemple : Sarah">
-
-<label>Date et heure</label>
-<input id="date" type="datetime-local">
-
-<label>Nom de la salle</label>
-<input id="venue" placeholder="Salle des Fêtes">
-
-<label>Lien Google Maps</label>
-<input id="maps" placeholder="Lien Google Maps">
-
-<label>Message</label>
-
-<textarea id="message">
-Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.
-</textarea>
-
-<button onclick="generate()">
-✨ Générer mon invitation
-</button>
-
-<div id="result"></div>
-
-</div>
-
-</div>
-
-
-<div id="invitation" class="invitation">
-
-<div class="small">
-NOTRE MARIAGE
-</div>
-
-<div class="names">
-
-<span id="groomDisplay">
-Amine
-</span>
-
-<span class="gold">
-&
-</span>
-
-<span id="brideDisplay">
-Sarah
-</span>
-
-</div>
-
-<p class="message" id="messageDisplay">
-Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.
-</p>
-
-<div class="date" id="dateDisplay">
-NOTRE GRAND JOUR
-</div>
-
-<div class="count" id="countdown">
-Compte à rebours
-</div>
-
-<p>
-📍
-<span id="venueDisplay">
-Salle des Fêtes
-</span>
-</p>
-
-<a
-id="mapsDisplay"
-class="map"
-target="_blank"
-style="display:none"
->
-Voir la localisation
-</a>
-
-<p class="gold">
-Votre présence sera notre plus beau cadeau
-</p>
-
-</div>
-
-
-<script>
-
-let weddingDate;
-
-
-function generate(){
-
-const groom=
-document.getElementById("groom").value.trim();
-
-const bride=
-document.getElementById("bride").value.trim();
-
-const date=
-document.getElementById("date").value;
-
-const venue=
-document.getElementById("venue").value.trim();
-
-const maps=
-document.getElementById("maps").value.trim();
-
-const message=
-document.getElementById("message").value.trim();
-
-
-if(!groom || !bride || !date){
-
-alert(
-"Veuillez remplir les prénoms et la date."
+radial-gradient(
+circle at 50% 0%,
+#3a2b13 0%,
+#17130c 22%,
+#0b0b0b 48%,
+#050505 75%
 );
 
-return;
+border:1px solid #b9974a;
 
+box-shadow:
+
+0 0 25px rgba(201,166,74,.18),
+
+0 0 80px rgba(201,166,74,.04),
+
+inset 0 0 50px rgba(201,166,74,.05);
+
+position:relative;
+
+overflow:hidden;
 }
 
+/* =========================
+   ECLATS DECORATIFS
+========================= */
 
-document.getElementById("groomDisplay").innerText=groom;
+.invitation::before{
 
-document.getElementById("brideDisplay").innerText=bride;
+content:"✦   ✧   ✦   ✧   ✦";
 
-document.getElementById("messageDisplay").innerText=message;
+position:absolute;
 
-document.getElementById("venueDisplay").innerText=venue;
+top:18px;
 
+left:0;
 
-weddingDate=new Date(date);
+right:0;
 
+font-size:18px;
 
-document.getElementById("dateDisplay").innerText=
-weddingDate.toLocaleString(
-"fr-FR",
-{
-day:"2-digit",
-month:"long",
-year:"numeric",
-hour:"2-digit",
-minute:"2-digit"
-}
+letter-spacing:14px;
+
+background:
+
+linear-gradient(
+90deg,
+#8f6b22,
+#fff1b8,
+#c9a64a,
+#fff1b8,
+#8f6b22
 );
 
+-webkit-background-clip:text;
 
-if(maps){
+-webkit-text-fill-color:transparent;
 
-const link=
-document.getElementById("mapsDisplay");
+background-clip:text;
 
-link.href=maps;
+opacity:.8;
+}
 
-link.style.display="inline-block";
+.invitation::after{
+
+content:"✦";
+
+position:absolute;
+
+right:30px;
+
+bottom:25px;
+
+font-size:45px;
+
+color:#f5df91;
+
+text-shadow:
+
+0 0 6px #f5df91,
+
+0 0 18px rgba(245,223,145,.7),
+
+0 0 35px rgba(201,166,74,.4);
+
+animation:sparkle 2.5s infinite;
+}
+
+@keyframes sparkle{
+
+0%,100%{
+opacity:.35;
+transform:scale(.8) rotate(0deg);
+}
+
+50%{
+opacity:1;
+transform:scale(1.15) rotate(15deg);
+}
 
 }
 
+/* =========================
+   OR LUXE
+========================= */
 
-const params=new URLSearchParams();
+.gold{
 
-params.set("groom",groom);
+background:
 
-params.set("bride",bride);
-
-params.set("date",date);
-
-params.set("venue",venue);
-
-params.set("maps",maps);
-
-params.set("message",message);
-
-
-const link=
-location.origin+
-location.pathname+
-"?"+params.toString();
-
-
-document.getElementById("result").innerHTML=
-
-"✨ Votre invitation est prête !<br><br>"+
-"<b>"+link+"</b>"+
-"<br><br>"+
-"Copiez ce lien et envoyez-le à vos invités.";
-
-
-}
-
-
-function loadInvitation(){
-
-const params=
-new URLSearchParams(
-location.search
+linear-gradient(
+90deg,
+#8f6b22,
+#f8e7a1,
+#c9a64a,
+#fff1b8,
+#a67c25
 );
 
+-webkit-background-clip:text;
 
-if(!params.has("groom"))
-return;
+-webkit-text-fill-color:transparent;
 
-
-document.querySelector(".creator").style.display="none";
-
-
-const groom=params.get("groom");
-
-const bride=params.get("bride");
-
-const date=params.get("date");
-
-const venue=params.get("venue");
-
-const maps=params.get("maps");
-
-const message=params.get("message");
-
-
-document.getElementById("groomDisplay").innerText=groom;
-
-document.getElementById("brideDisplay").innerText=bride;
-
-document.getElementById("messageDisplay").innerText=message;
-
-document.getElementById("venueDisplay").innerText=venue;
-
-
-if(date){
-
-weddingDate=new Date(date);
-
-document.getElementById("dateDisplay").innerText=
-weddingDate.toLocaleString(
-"fr-FR",
-{
-day:"2-digit",
-month:"long",
-year:"numeric",
-hour:"2-digit",
-minute:"2-digit"
+background-clip:text;
 }
+
+/* =========================
+   PETIT TEXTE
+========================= */
+
+.small{
+
+font-family:Arial,sans-serif;
+
+font-size:11px;
+
+letter-spacing:5px;
+
+background:
+
+linear-gradient(
+90deg,
+#8f6b22,
+#fff1b8,
+#c9a64a,
+#fff1b8,
+#8f6b22
 );
 
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
+margin-top:10px;
 }
 
+/* =========================
+   NOMS
+========================= */
 
-if(maps){
+.names{
 
-const link=
-document.getElementById("mapsDisplay");
+font-size:55px;
 
-link.href=maps;
+font-weight:normal;
 
-link.style.display="inline-block";
+margin:35px 0;
 
+line-height:1.2;
+
+text-shadow:
+
+0 0 12px rgba(201,166,74,.08);
 }
 
+.names .gold{
+
+margin:0 8px;
 }
 
+/* =========================
+   MESSAGE
+========================= */
 
-function countdown(){
+.message{
 
-if(!weddingDate)
-return;
+max-width:520px;
 
+margin:30px auto;
 
-const difference=
-weddingDate-
-new Date();
+line-height:1.9;
 
+color:#d8d2c7;
 
-if(difference<=0){
-
-document.getElementById("countdown").innerText=
-"C'est le grand jour ! ❤️";
-
-return;
-
+font-size:16px;
 }
 
+/* =========================
+   DATE
+========================= */
 
-const days=
-Math.floor(
-difference/86400000
+.date{
+
+font-family:Arial,sans-serif;
+
+letter-spacing:2px;
+
+background:
+
+linear-gradient(
+90deg,
+#9f7828,
+#fff1b8,
+#c9a64a,
+#fff1b8,
+#9f7828
 );
 
-const hours=
-Math.floor(
-difference/3600000
-)%24;
+-webkit-background-clip:text;
 
-const minutes=
-Math.floor(
-difference/60000
-)%60;
+-webkit-text-fill-color:transparent;
 
-const seconds=
-Math.floor(
-difference/1000
-)%60;
+background-clip:text;
 
+margin:35px 0;
 
-document.getElementById("countdown").innerText=
-
-days+" jours • "+
-hours+" h • "+
-minutes+" min • "+
-seconds+" sec";
-
+font-weight:bold;
 }
 
+/* =========================
+   COMPTE A REBOURS
+========================= */
 
-loadInvitation();
+.count{
 
-setInterval(
-countdown,
-1000
-);
+font-family:Arial,sans-serif;
 
-</script>
+padding:18px;
 
-</body>
-  </html>
+border-top:1px solid #705823;
+
+border-bottom:1px solid #705823;
+
+margin:25px auto;
+
+max-width:500px;
+
+color:#eee;
+
+letter-spacing:.5px;
+
+background:rgba(201,166,74,.025);
+}
+
+/* =========================
+   LOCALISATION
+========================= */
+
+.map{
+
+display:inline-block;
+
+margin-top:15px;
+
+color:#e5ca78;
+
+font-family:Arial
