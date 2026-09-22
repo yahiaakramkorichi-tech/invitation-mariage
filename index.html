@@ -9,124 +9,134 @@
 *{box-sizing:border-box}
 
 body{
-margin:0;
-font-family:Georgia,serif;
-background:#f7f1e8;
-color:#403329;
+ margin:0;
+ font-family:Georgia,serif;
+ background:#f7f1e8;
+ color:#403329;
 }
 
 header{
-text-align:center;
-padding:45px 20px;
-background:white;
+ text-align:center;
+ padding:40px 20px;
+ background:white;
 }
 
 header h1{
-font-size:42px;
-font-weight:normal;
-margin:10px;
+ font-size:42px;
+ font-weight:normal;
+ margin:10px;
 }
 
 .gold{color:#ad8550}
 
 .container{
-max-width:900px;
-margin:auto;
-padding:20px;
+ max-width:900px;
+ margin:auto;
+ padding:20px;
 }
 
 .form{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 30px #0001;
+ background:white;
+ padding:25px;
+ border-radius:15px;
+ box-shadow:0 10px 30px #0001;
 }
 
 label{
-display:block;
-font-family:Arial;
-font-size:14px;
-font-weight:bold;
-margin-top:15px;
+ display:block;
+ font-family:Arial;
+ font-size:14px;
+ font-weight:bold;
+ margin-top:15px;
 }
 
 input,textarea{
-width:100%;
-padding:12px;
-margin-top:6px;
-border:1px solid #ddd0be;
-border-radius:8px;
-font-size:15px;
+ width:100%;
+ padding:12px;
+ margin-top:6px;
+ border:1px solid #ddd0be;
+ border-radius:8px;
+ font-size:15px;
 }
 
-textarea{
-height:100px;
-}
+textarea{height:100px}
 
 button{
-width:100%;
-margin-top:20px;
-padding:14px;
-background:#44372b;
-color:white;
-border:0;
-border-radius:8px;
-font-weight:bold;
-font-size:15px;
+ width:100%;
+ margin-top:20px;
+ padding:14px;
+ background:#44372b;
+ color:white;
+ border:0;
+ border-radius:8px;
+ font-weight:bold;
+ font-size:15px;
 }
 
 .invitation{
-margin-top:30px;
-padding:40px 20px;
-text-align:center;
-background:white;
-border:1px solid #d9c19f;
-border-radius:15px;
-box-shadow:0 10px 30px #0001;
+ margin-top:30px;
+ padding:40px 20px;
+ text-align:center;
+ background:white;
+ border:1px solid #d9c19f;
+ border-radius:15px;
+ box-shadow:0 10px 30px #0001;
 }
 
 .invitation h2{
-font-size:42px;
-font-weight:normal;
-margin:15px 0;
+ font-size:42px;
+ font-weight:normal;
+ margin:15px 0;
 }
 
 .small{
-font-family:Arial;
-font-size:12px;
-letter-spacing:3px;
-color:#98764d;
+ font-family:Arial;
+ font-size:12px;
+ letter-spacing:3px;
+ color:#98764d;
 }
 
 .message{
-line-height:1.8;
-color:#65594e;
+ line-height:1.8;
+ color:#65594e;
 }
 
 .date{
-font-family:Arial;
-font-weight:bold;
-color:#98764d;
-margin:20px;
+ font-family:Arial;
+ font-weight:bold;
+ color:#98764d;
+ margin:20px;
 }
 
 .count{
-font-family:Arial;
-padding:15px;
-border-top:1px solid #eee;
-border-bottom:1px solid #eee;
-margin:20px 0;
+ font-family:Arial;
+ padding:15px;
+ border-top:1px solid #eee;
+ border-bottom:1px solid #eee;
+ margin:20px 0;
 }
 
 .map{
-color:#98764d;
-text-decoration:none;
-font-family:Arial;
-font-weight:bold;
+ color:#98764d;
+ text-decoration:none;
+ font-family:Arial;
+ font-weight:bold;
+}
+
+.hidden{display:none}
+
+.success{
+ background:#f3eadf;
+ padding:15px;
+ border-radius:8px;
+ margin-top:15px;
+ font-family:Arial;
+ font-size:14px;
+ word-break:break-all;
 }
 
 @media(max-width:600px){
-.invitation h2{font-size:34px}
+ .invitation h2{font-size:34px}
 }
 </style>
 </head>
@@ -141,35 +151,44 @@ font-weight:bold;
 
 <div class="container">
 
-<div class="form">
+<!-- FORMULAIRE -->
+<div id="creator" class="form">
 
 <h2>Créer mon invitation</h2>
 
 <label>Prénom du marié</label>
-<input id="groom" value="Amine">
+<input id="groom" placeholder="Exemple : Amine">
 
 <label>Prénom de la mariée</label>
-<input id="bride" value="Sarah">
+<input id="bride" placeholder="Exemple : Sarah">
 
 <label>Date et heure</label>
 <input id="date" type="datetime-local">
 
 <label>Nom de la salle</label>
-<input id="venue" value="Salle des Fêtes El Bahia">
+<input id="venue" placeholder="Exemple : Salle El Bahia">
 
 <label>Lien Google Maps</label>
-<input id="maps" placeholder="Collez ici le lien Google Maps">
+<input id="maps" placeholder="Collez le lien Google Maps">
 
 <label>Message d'invitation</label>
 <textarea id="message">Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.</textarea>
 
-<button onclick="generer()">Créer mon invitation</button>
+<button onclick="genererLien()">
+💍 Générer mon invitation
+</button>
+
+<div id="result" class="success hidden"></div>
 
 </div>
 
-<div class="invitation">
 
-<div class="small">NOUS AVONS LE PLAISIR DE VOUS INVITER</div>
+<!-- INVITATION -->
+<div id="invitation" class="invitation">
+
+<div class="small">
+NOUS AVONS LE PLAISIR DE VOUS INVITER
+</div>
 
 <h2>
 <span id="p1">Amine</span>
@@ -177,119 +196,226 @@ font-weight:bold;
 <span id="p2">Sarah</span>
 </h2>
 
-<p class="message" id="pmessage">
-Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.
-</p>
+<p class="message" id="pmessage"></p>
 
-<div class="date" id="pdate">
-CHOISISSEZ UNE DATE
-</div>
+<div class="date" id="pdate"></div>
 
-<div class="count" id="count">
-Le compte à rebours apparaîtra ici
-</div>
+<div class="count" id="count"></div>
 
-<p>📍 <b id="pvenue">Salle des Fêtes El Bahia</b></p>
+<p>📍 <b id="pvenue"></b></p>
 
-<a id="map" class="map" target="_blank" style="display:none">
+<a id="map" class="map" target="_blank">
 📍 Voir la localisation
 </a>
 
-<p>Votre présence sera notre plus beau cadeau ❤️</p>
+<p>
+Votre présence sera notre plus beau cadeau ❤️
+</p>
 
-<button onclick="partager()">Partager sur WhatsApp</button>
+<button onclick="partager()">
+📱 Partager sur WhatsApp
+</button>
 
 </div>
 
 </div>
+
 
 <script>
 
 let weddingDate;
 
-function generer(){
 
-let groom=document.getElementById("groom").value;
-let bride=document.getElementById("bride").value;
-let date=document.getElementById("date").value;
-let venue=document.getElementById("venue").value;
-let message=document.getElementById("message").value;
-let maps=document.getElementById("maps").value;
+/* Création du lien */
 
-document.getElementById("p1").innerText=groom;
-document.getElementById("p2").innerText=bride;
-document.getElementById("pvenue").innerText=venue;
-document.getElementById("pmessage").innerText=message;
+function genererLien(){
 
-if(date){
+ const groom=document.getElementById("groom").value.trim();
+ const bride=document.getElementById("bride").value.trim();
+ const date=document.getElementById("date").value;
+ const venue=document.getElementById("venue").value.trim();
+ const maps=document.getElementById("maps").value.trim();
+ const message=document.getElementById("message").value.trim();
 
-weddingDate=new Date(date);
+ if(!groom || !bride || !date){
 
-document.getElementById("pdate").innerText=
-weddingDate.toLocaleString("fr-FR",{
-day:"2-digit",
-month:"long",
-year:"numeric",
-hour:"2-digit",
-minute:"2-digit"
-});
+  alert("Veuillez remplir au minimum les deux prénoms et la date.");
+
+  return;
+ }
+
+
+ const params=new URLSearchParams();
+
+ params.set("groom",groom);
+ params.set("bride",bride);
+ params.set("date",date);
+ params.set("venue",venue);
+ params.set("maps",maps);
+ params.set("message",message);
+
+
+ const link=window.location.origin+
+ window.location.pathname+
+ "?"+params.toString();
+
+
+ document.getElementById("result").classList.remove("hidden");
+
+ document.getElementById("result").innerHTML=
+ "✅ Votre invitation est prête !<br><br>"+
+ "<b>"+link+"</b>"+
+ "<br><br>"+
+ "<button onclick='copierLien()'>📋 Copier le lien</button>"+
+ "<button onclick='partagerLien()'>📱 Envoyer sur WhatsApp</button>";
+
+ window.generatedLink=link;
 
 }
 
-if(maps){
 
-let link=document.getElementById("map");
+/* Copier */
 
-link.href=maps;
-link.style.display="inline-block";
+function copierLien(){
+
+ navigator.clipboard.writeText(window.generatedLink);
+
+ alert("Lien copié !");
 
 }
 
+
+/* WhatsApp */
+
+function partagerLien(){
+
+ const text=
+ "💍 Voici notre invitation de mariage ❤️\n\n"+
+ window.generatedLink;
+
+ window.open(
+ "https://wa.me/?text="+encodeURIComponent(text),
+ "_blank"
+ );
+
 }
+
+
+/* Afficher l'invitation */
+
+function afficherInvitation(){
+
+ const params=new URLSearchParams(window.location.search);
+
+ if(!params.has("groom")){
+
+  document.getElementById("invitation").style.display="none";
+
+  return;
+ }
+
+
+ document.getElementById("creator").style.display="none";
+
+ const groom=params.get("groom") || "";
+ const bride=params.get("bride") || "";
+ const date=params.get("date") || "";
+ const venue=params.get("venue") || "";
+ const maps=params.get("maps") || "";
+ const message=params.get("message") || "";
+
+
+ document.getElementById("p1").innerText=groom;
+ document.getElementById("p2").innerText=bride;
+ document.getElementById("pmessage").innerText=message;
+ document.getElementById("pvenue").innerText=venue;
+
+
+ if(date){
+
+  weddingDate=new Date(date);
+
+  document.getElementById("pdate").innerText=
+  weddingDate.toLocaleString("fr-FR",{
+   day:"2-digit",
+   month:"long",
+   year:"numeric",
+   hour:"2-digit",
+   minute:"2-digit"
+  });
+
+ }
+
+
+ if(maps){
+
+  const map=document.getElementById("map");
+
+  map.href=maps;
+  map.style.display="inline-block";
+
+ }
+
+}
+
+
+/* Compte à rebours */
 
 function countdown(){
 
-if(!weddingDate)return;
+ if(!weddingDate)return;
 
-let difference=weddingDate-new Date();
+ const difference=weddingDate-new Date();
 
-if(difference<=0){
+ if(difference<=0){
 
-document.getElementById("count").innerText=
-"C'est le grand jour ! ❤️";
+  document.getElementById("count").innerText=
+  "C'est le grand jour ! ❤️";
 
-return;
+  return;
+ }
+
+
+ const days=Math.floor(difference/86400000);
+ const hours=Math.floor(difference/3600000)%24;
+ const minutes=Math.floor(difference/60000)%60;
+ const seconds=Math.floor(difference/1000)%60;
+
+
+ document.getElementById("count").innerText=
+ days+" jours • "+
+ hours+" h • "+
+ minutes+" min • "+
+ seconds+" sec";
 
 }
 
-let days=Math.floor(difference/86400000);
-let hours=Math.floor(difference/3600000)%24;
-let minutes=Math.floor(difference/60000)%60;
-let seconds=Math.floor(difference/1000)%60;
 
-document.getElementById("count").innerText=
-days+" jours • "+
-hours+" h • "+
-minutes+" min • "+
-seconds+" sec";
-
-}
+/* WhatsApp depuis l'invitation */
 
 function partager(){
 
-let groom=document.getElementById("groom").value;
-let bride=document.getElementById("bride").value;
+ const groom=document.getElementById("p1").innerText;
+ const bride=document.getElementById("p2").innerText;
 
-let text=
-"💍 Invitation de mariage\n\n"+
-groom+" & "+bride+
-"\n\nNous avons le plaisir de vous inviter à notre mariage ❤️";
+ const text=
+ "💍 Invitation de mariage\n\n"+
+ groom+" & "+bride+
+ "\n\nNous avons le plaisir de vous inviter à notre mariage ❤️";
 
-window.open(
-"https://wa.me/?text="+encodeURIComponent(text),
-"_blank"
-);
+ window.open(
+ "https://wa.me/?text="+encodeURIComponent(text),
+ "_blank"
+ );
 
 }
 
-setInterval(countdown,100
+
+afficherInvitation();
+
+setInterval(countdown,1000);
+
+</script>
+
+</body>
+</html>
