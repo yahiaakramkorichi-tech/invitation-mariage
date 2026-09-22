@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Invitation Noir & Or</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#090909;
+color:#eee;
+font-family:Georgia,serif;
+}
+
+.creator{
+max-width:600px;
+margin:auto;
+padding:25px;
+}
+
+.creator h1{
+text-align:center;
+font-weight:normal;
+color:#d4af37;
+}
+
+.form{
+background:#151515;
+padding:25px;
+border:1px solid #4d3c12;
+border-radius:12px;
+}
+
+label{
+display:block;
+font-family:Arial;
+font-size:13px;
+margin-top:15px;
+color:#d4af37;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:6px;
+background:#222;
+border:1px solid #51451f;
+border-radius:6px;
+color:white;
+}
+
+textarea{
+height:100px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:20px;
+border:0;
+border-radius:6px;
+background:#d4af37;
+color:#111;
+font-weight:bold;
+font-size:15px;
+}
+
+.invitation{
+max-width:700px;
+margin:30px auto;
+min-height:700px;
+padding:60px 25px;
+text-align:center;
+
+background:
+radial-gradient(circle at top,#29200c 0,#090909 45%);
+
+border:1px solid #8b6b20;
+}
+
+.gold{
+color:#d4af37;
+}
+
+.small{
+font-family:Arial;
+font-size:11px;
+letter-spacing:4px;
+color:#d4af37;
+}
+
+.names{
+font-size:55px;
+font-weight:normal;
+margin:30px 0;
+}
+
+.message{
+max-width:520px;
+margin:30px auto;
+line-height:1.9;
+color:#d5d0c8;
+}
+
+.date{
+font-family:Arial;
+letter-spacing:2px;
+color:#d4af37;
+margin:30px 0;
+}
+
+.count{
+font-family:Arial;
+padding:18px;
+border-top:1px solid #51451f;
+border-bottom:1px solid #51451f;
+margin:25px auto;
+max-width:500px;
+}
+
+.map{
+display:inline-block;
+margin-top:15px;
+color:#d4af37;
+font-family:Arial;
+font-weight:bold;
+text-decoration:none;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:#201b0d;
+border:1px solid #51451f;
+font-family:Arial;
+font-size:13px;
+word-break:break-all;
+}
+
+@media(max-width:600px){
+
+.names{
+font-size:40px;
+}
+
+.invitation{
+margin:20px 10px;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="creator">
+
+<h1>Éclat & Amour</h1>
+
+<div class="form">
+
+<label>Prénom du marié</label>
+<input id="groom" placeholder="Exemple : Amine">
+
+<label>Prénom de la mariée</label>
+<input id="bride" placeholder="Exemple : Sarah">
+
+<label>Date et heure</label>
+<input id="date" type="datetime-local">
+
+<label>Nom de la salle</label>
+<input id="venue" placeholder="Salle des Fêtes">
+
+<label>Lien Google Maps</label>
+<input id="maps" placeholder="Lien Google Maps">
+
+<label>Message</label>
+
+<textarea id="message">
+Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.
+</textarea>
+
+<button onclick="generate()">
+✨ Générer mon invitation
+</button>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+
+<div id="invitation" class="invitation">
+
+<div class="small">
+NOTRE MARIAGE
+</div>
+
+<div class="names">
+
+<span id="groomDisplay">
+Amine
+</span>
+
+<span class="gold">
+&
+</span>
+
+<span id="brideDisplay">
+Sarah
+</span>
+
+</div>
+
+<p class="message" id="messageDisplay">
+Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.
+</p>
+
+<div class="date" id="dateDisplay">
+NOTRE GRAND JOUR
+</div>
+
+<div class="count" id="countdown">
+Compte à rebours
+</div>
+
+<p>
+📍
+<span id="venueDisplay">
+Salle des Fêtes
+</span>
+</p>
+
+<a
+id="mapsDisplay"
+class="map"
+target="_blank"
+style="display:none"
+>
+Voir la localisation
+</a>
+
+<p class="gold">
+Votre présence sera notre plus beau cadeau
+</p>
+
+</div>
+
+
+<script>
+
+let weddingDate;
+
+
+function generate(){
+
+const groom=
+document.getElementById("groom").value.trim();
+
+const bride=
+document.getElementById("bride").value.trim();
+
+const date=
+document.getElementById("date").value;
+
+const venue=
+document.getElementById("venue").value.trim();
+
+const maps=
+document.getElementById("maps").value.trim();
+
+const message=
+document.getElementById("message").value.trim();
+
+
+if(!groom || !bride || !date){
+
+alert(
+"Veuillez remplir les prénoms et la date."
+);
+
+return;
+
+}
+
+
+document.getElementById("groomDisplay").innerText=groom;
+
+document.getElementById("brideDisplay").innerText=bride;
+
+document.getElementById("messageDisplay").innerText=message;
+
+document.getElementById("venueDisplay").innerText=venue;
+
+
+weddingDate=new Date(date);
+
+
+document.getElementById("dateDisplay").innerText=
+weddingDate.toLocaleString(
+"fr-FR",
+{
+day:"2-digit",
+month:"long",
+year:"numeric",
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+
+if(maps){
+
+const link=
+document.getElementById("mapsDisplay");
+
+link.href=maps;
+
+link.style.display="inline-block";
+
+}
+
+
+const params=new URLSearchParams();
+
+params.set("groom",groom);
+
+params.set("bride",bride);
+
+params.set("date",date);
+
+params.set("venue",venue);
+
+params.set("maps",maps);
+
+params.set("message",message);
+
+
+const link=
+location.origin+
+location.pathname+
+"?"+params.toString();
+
+
+document.getElementById("result").innerHTML=
+
+"✨ Votre invitation est prête !<br><br>"+
+"<b>"+link+"</b>"+
+"<br><br>"+
+"Copiez ce lien et envoyez-le à vos invités.";
+
+
+}
+
+
+function loadInvitation(){
+
+const params=
+new URLSearchParams(
+location.search
+);
+
+
+if(!params.has("groom"))
+return;
+
+
+document.querySelector(".creator").style.display="none";
+
+
+const groom=params.get("groom");
+
+const bride=params.get("bride");
+
+const date=params.get("date");
+
+const venue=params.get("venue");
+
+const maps=params.get("maps");
+
+const message=params.get("message");
+
+
+document.getElementById("groomDisplay").innerText=groom;
+
+document.getElementById("brideDisplay").innerText=bride;
+
+document.getElementById("messageDisplay").innerText=message;
+
+document.getElementById("venueDisplay").innerText=venue;
+
+
+if(date){
+
+weddingDate=new Date(date);
+
+document.getElementById("dateDisplay").innerText=
+weddingDate.toLocaleString(
+"fr-FR",
+{
+day:"2-digit",
+month:"long",
+year:"numeric",
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+}
+
+
+if(maps){
+
+const link=
+document.getElementById("mapsDisplay");
+
+link.href=maps;
+
+link.style.display="inline-block";
+
+}
+
+}
+
+
+function countdown(){
+
+if(!weddingDate)
+return;
+
+
+const difference=
+weddingDate-
+new Date();
+
+
+if(difference<=0){
+
+document.getElementById("countdown").innerText=
+"C'est le grand jour ! ❤️";
+
+return;
+
+}
+
+
+const days=
+Math.floor(
+difference/86400000
+);
+
+const hours=
+Math.floor(
+difference/3600000
+)%24;
+
+const minutes=
+Math.floor(
+difference/60000
+)%60;
+
+const seconds=
+Math.floor(
+difference/1000
+)%60;
+
+
+document.getElementById("countdown").innerText=
+
+days+" jours • "+
+hours+" h • "+
+minutes+" min • "+
+seconds+" sec";
+
+}
+
+
+loadInvitation();
+
+setInterval(
+countdown,
+1000
+);
+
+</script>
+
+</body>
+  </html>
