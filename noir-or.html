@@ -4,22 +4,16 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
 
 <title>Éclat & Amour</title>
 
 <style>
 
-/* =====================================================
-   BASE
-===================================================== */
-
 *{
 box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
 }
 
 body{
@@ -31,15 +25,15 @@ overflow-x:hidden;
 }
 
 :root{
---gold-dark:#80601d;
 --gold:#c9a64a;
---gold-light:#f4dda0;
---gold-bright:#fff2bd;
+--light:#f4dda0;
+--bright:#fff2bd;
 }
 
-/* =====================================================
-   FORMULAIRE
-===================================================== */
+
+/* ================================
+   CREATEUR
+================================ */
 
 .creator{
 max-width:600px;
@@ -49,8 +43,8 @@ padding:28px 20px;
 
 .creator h1{
 text-align:center;
-font-weight:normal;
 font-size:34px;
+font-weight:normal;
 
 background:
 linear-gradient(
@@ -64,22 +58,13 @@ linear-gradient(
 
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-background-clip:text;
-
-text-shadow:
-0 0 25px rgba(201,166,74,.12);
 
 margin-bottom:28px;
 }
 
 .form{
-
 background:
-linear-gradient(
-145deg,
-#17130b,
-#090909
-);
+linear-gradient(145deg,#17130b,#090909);
 
 padding:26px;
 
@@ -88,23 +73,17 @@ border:1px solid #715a27;
 border-radius:15px;
 
 box-shadow:
-0 0 35px rgba(201,166,74,.08),
-inset 0 0 35px rgba(201,166,74,.025);
+0 0 35px rgba(201,166,74,.08);
 }
 
 label{
-
 display:block;
 
 margin-top:16px;
 
-font-family:Arial,sans-serif;
+font:13px Arial,sans-serif;
 
-font-size:13px;
-
-letter-spacing:.3px;
-
-color:var(--gold-light);
+color:var(--light);
 }
 
 input,
@@ -127,23 +106,10 @@ color:white;
 font-family:Arial,sans-serif;
 
 outline:none;
-
-transition:.25s;
-}
-
-input:focus,
-textarea:focus{
-
-border-color:var(--gold);
-
-box-shadow:
-0 0 10px rgba(201,166,74,.15);
 }
 
 textarea{
-
 height:105px;
-
 resize:vertical;
 }
 
@@ -160,7 +126,6 @@ border:0;
 border-radius:8px;
 
 background:
-
 linear-gradient(
 135deg,
 #80601d,
@@ -177,19 +142,6 @@ font-size:15px;
 font-weight:bold;
 
 cursor:pointer;
-
-box-shadow:
-0 7px 25px rgba(201,166,74,.13);
-
-transition:.3s;
-}
-
-button:hover{
-
-transform:translateY(-2px);
-
-box-shadow:
-0 10px 30px rgba(201,166,74,.22);
 }
 
 .result{
@@ -204,17 +156,15 @@ border:1px solid #715a27;
 
 border-radius:8px;
 
-font-family:Arial,sans-serif;
-
-font-size:13px;
+font:13px Arial,sans-serif;
 
 word-break:break-all;
-
 }
 
-/* =====================================================
+
+/* ================================
    INVITATION
-===================================================== */
+================================ */
 
 .invitation{
 
@@ -248,45 +198,13 @@ box-shadow:
 
 0 0 35px rgba(201,166,74,.18),
 
-0 0 100px rgba(201,166,74,.05),
-
-inset 0 0 70px rgba(201,166,74,.04);
+0 0 100px rgba(201,166,74,.05);
 }
 
-/* =====================================================
-   LUMIERE DERRIERE LES NOMS
-===================================================== */
 
-.invitation:before{
-
-content:"";
-
-position:absolute;
-
-width:500px;
-
-height:250px;
-
-left:50%;
-
-top:-100px;
-
-transform:translateX(-50%);
-
-background:
-
-radial-gradient(
-ellipse,
-rgba(244,221,160,.14),
-transparent 70%
-);
-
-pointer-events:none;
-}
-
-/* =====================================================
+/* ================================
    POUSSIERE D'OR
-===================================================== */
+================================ */
 
 .gold-wind{
 
@@ -317,264 +235,119 @@ box-shadow:
 
 0 0 5px #f8e7a1,
 
-0 0 12px rgba(248,231,161,.9),
-
-0 0 22px rgba(201,166,74,.4);
+0 0 12px rgba(248,231,161,.9);
 
 opacity:0;
 
-animation:
-goldWind 8s linear infinite;
+animation:goldWind 8s linear infinite;
 }
 
-/* positions */
-
-.gold-wind span:nth-child(1){
-top:15%;
-left:-5%;
-animation-delay:0s;
-}
-
-.gold-wind span:nth-child(2){
-top:25%;
-left:5%;
-animation-delay:1s;
-}
-
-.gold-wind span:nth-child(3){
-top:38%;
-left:-8%;
-animation-delay:2s;
-}
-
-.gold-wind span:nth-child(4){
-top:52%;
-left:10%;
-animation-delay:3s;
-}
-
-.gold-wind span:nth-child(5){
-top:68%;
-left:-6%;
-animation-delay:4s;
-}
-
-.gold-wind span:nth-child(6){
-top:78%;
-left:18%;
-animation-delay:5s;
-}
-
-.gold-wind span:nth-child(7){
-top:32%;
-left:28%;
-animation-delay:2.5s;
-}
-
-.gold-wind span:nth-child(8){
-top:60%;
-left:38%;
-animation-delay:4.5s;
-}
-
-.gold-wind span:nth-child(9){
-top:18%;
-left:50%;
-animation-delay:1.5s;
-}
-
-.gold-wind span:nth-child(10){
-top:43%;
-left:58%;
-animation-delay:3.5s;
-}
-
-.gold-wind span:nth-child(11){
-top:70%;
-left:55%;
-animation-delay:5.5s;
-}
-
-.gold-wind span:nth-child(12){
-top:35%;
-left:72%;
-animation-delay:2.2s;
-}
-
-.gold-wind span:nth-child(13){
-top:17%;
-left:84%;
-animation-delay:4.2s;
-}
-
-.gold-wind span:nth-child(14){
-top:55%;
-left:90%;
-animation-delay:1.8s;
-}
-
-.gold-wind span:nth-child(15){
-top:76%;
-left:70%;
-animation-delay:6s;
-}
-
-.gold-wind span:nth-child(16){
-top:28%;
-left:96%;
-animation-delay:3s;
-}
-
-/* =====================================================
-   ANIMATION VENT
-===================================================== */
+.gold-wind span:nth-child(1){top:15%;left:-5%}
+.gold-wind span:nth-child(2){top:25%;left:5%;animation-delay:1s}
+.gold-wind span:nth-child(3){top:38%;left:-8%;animation-delay:2s}
+.gold-wind span:nth-child(4){top:52%;left:10%;animation-delay:3s}
+.gold-wind span:nth-child(5){top:68%;left:-6%;animation-delay:4s}
+.gold-wind span:nth-child(6){top:78%;left:18%;animation-delay:5s}
+.gold-wind span:nth-child(7){top:32%;left:28%;animation-delay:2.5s}
+.gold-wind span:nth-child(8){top:60%;left:38%;animation-delay:4.5s}
+.gold-wind span:nth-child(9){top:18%;left:50%;animation-delay:1.5s}
+.gold-wind span:nth-child(10){top:43%;left:58%;animation-delay:3.5s}
+.gold-wind span:nth-child(11){top:70%;left:55%;animation-delay:5.5s}
+.gold-wind span:nth-child(12){top:35%;left:72%;animation-delay:2.2s}
+.gold-wind span:nth-child(13){top:17%;left:84%;animation-delay:4.2s}
+.gold-wind span:nth-child(14){top:55%;left:90%;animation-delay:1.8s}
+.gold-wind span:nth-child(15){top:76%;left:70%;animation-delay:6s}
+.gold-wind span:nth-child(16){top:28%;left:96%;animation-delay:3s}
 
 @keyframes goldWind{
 
 0%{
-
-transform:
-translate(-40px,70px)
-rotate(0deg)
-scale(.3);
-
+transform:translate(-40px,70px) scale(.3);
 opacity:0;
 }
 
 12%{
-
 opacity:.9;
 }
 
 35%{
-
-transform:
-translate(80px,20px)
-rotate(120deg)
-scale(1.2);
-
+transform:translate(80px,20px) scale(1.2);
 opacity:.85;
 }
 
 60%{
-
-transform:
-translate(190px,-35px)
-rotate(230deg)
-scale(1.5);
-
+transform:translate(190px,-35px) scale(1.5);
 opacity:.65;
 }
 
-82%{
-
-opacity:.3;
-}
-
 100%{
-
-transform:
-translate(430px,-150px)
-rotate(400deg)
-scale(.2);
-
+transform:translate(430px,-150px) scale(.2);
 opacity:0;
 }
 
 }
 
-/* =====================================================
-   GROS ECLATS
-===================================================== */
+
+/* ================================
+   ECLATS
+================================ */
 
 .spark{
 
 position:absolute;
 
-font-size:45px;
-
 color:#f8e7a1;
 
-text-shadow:
-
-0 0 6px #fff2bd,
-
-0 0 18px #f4dda0,
-
-0 0 35px #c9a64a,
-
-0 0 60px rgba(201,166,74,.5);
+font-size:40px;
 
 z-index:3;
 
-animation:
-sparkle 3s ease-in-out infinite;
+animation:sparkle 3s infinite;
 }
 
 .spark.one{
-
 right:30px;
-
 bottom:35px;
 }
 
 .spark.two{
-
 left:30px;
-
 top:110px;
-
 font-size:28px;
-
-animation-delay:1.2s;
 }
 
 .spark.three{
-
 right:90px;
-
 top:180px;
-
 font-size:20px;
-
-animation-delay:2s;
 }
 
 @keyframes sparkle{
 
 0%,100%{
-
 opacity:.25;
-
-transform:
-scale(.7)
-rotate(0deg);
+transform:scale(.7);
 }
 
 50%{
-
 opacity:1;
-
-transform:
-scale(1.25)
-rotate(25deg);
+transform:scale(1.25) rotate(25deg);
 }
 
 }
 
-/* =====================================================
-   TEXTE
-===================================================== */
+
+/* ================================
+   TEXTE INVITATION
+================================ */
 
 .small{
 
-font-family:Arial,sans-serif;
-
-font-size:11px;
+font:11px Arial,sans-serif;
 
 letter-spacing:6px;
 
-color:var(--gold-light);
+color:var(--light);
 
 position:relative;
 
@@ -585,8 +358,6 @@ z-index:4;
 
 font-size:56px;
 
-font-weight:normal;
-
 line-height:1.2;
 
 margin:40px 0;
@@ -594,16 +365,11 @@ margin:40px 0;
 position:relative;
 
 z-index:4;
-
-text-shadow:
-
-0 0 20px rgba(201,166,74,.12);
 }
 
 .gold{
 
 background:
-
 linear-gradient(
 90deg,
 #80601d,
@@ -616,8 +382,6 @@ linear-gradient(
 -webkit-background-clip:text;
 
 -webkit-text-fill-color:transparent;
-
-background-clip:text;
 }
 
 .message{
@@ -639,13 +403,11 @@ z-index:4;
 
 .date{
 
-font-family:Arial,sans-serif;
+font:bold 15px Arial,sans-serif;
 
 letter-spacing:2px;
 
 margin:35px 0;
-
-font-weight:bold;
 
 color:#e5ca78;
 
@@ -656,7 +418,7 @@ z-index:4;
 
 .count{
 
-font-family:Arial,sans-serif;
+font:15px Arial,sans-serif;
 
 padding:18px;
 
@@ -668,14 +430,9 @@ border-top:1px solid #715a27;
 
 border-bottom:1px solid #715a27;
 
-color:#eee;
-
 position:relative;
 
 z-index:4;
-
-background:
-rgba(201,166,74,.025);
 }
 
 .map{
@@ -686,9 +443,7 @@ margin-top:15px;
 
 color:#e5ca78;
 
-font-family:Arial,sans-serif;
-
-font-weight:bold;
+font:bold 14px Arial,sans-serif;
 
 text-decoration:none;
 
@@ -708,22 +463,326 @@ margin-top:45px;
 position:relative;
 
 z-index:4;
-
 }
 
-/* =====================================================
+
+/* ================================
+   ECRAN ENVELOPPE
+================================ */
+
+.opening-screen{
+
+position:fixed;
+
+inset:0;
+
+z-index:9999;
+
+display:none;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+
+radial-gradient(
+circle at center,
+#211a0d 0%,
+#080807 45%,
+#020202 100%
+);
+
+transition:
+opacity 1s ease,
+visibility 1s ease;
+}
+
+.opening-screen.hide{
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+}
+
+.opening-title{
+
+font:11px Arial,sans-serif;
+
+letter-spacing:5px;
+
+color:#f4dda0;
+
+margin-bottom:35px;
+
+text-align:center;
+}
+
+
+/* ================================
+   ENVELOPPE
+================================ */
+
+.envelope{
+
+width:320px;
+
+height:210px;
+
+position:relative;
+
+background:#111;
+
+border:1px solid #c9a64a;
+
+box-shadow:
+
+0 0 35px rgba(201,166,74,.25),
+
+0 0 90px rgba(201,166,74,.08);
+
+perspective:700px;
+}
+
+.envelope-body{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+145deg,
+#181818,
+#080808
+);
+}
+
+
+/* LETTRE */
+
+.envelope-letter{
+
+position:absolute;
+
+left:9%;
+
+bottom:5%;
+
+width:82%;
+
+height:82%;
+
+background:
+
+linear-gradient(
+#fffdf7,
+#eee8da
+);
+
+color:#29251d;
+
+z-index:2;
+
+transform:translateY(28%);
+
+transition:
+transform 1s cubic-bezier(.2,.8,.2,1);
+
+box-shadow:
+
+0 0 20px rgba(0,0,0,.5);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+font-size:16px;
+}
+
+.envelope-letter:before{
+
+content:"Éclat  &  Amour";
+
+font-style:italic;
+
+color:#8c6b25;
+}
+
+
+/* RABAT */
+
+.envelope-flap{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:55%;
+
+background:
+
+linear-gradient(
+145deg,
+#302611,
+#0c0b08
+);
+
+clip-path:
+
+polygon(
+0 0,
+100% 0,
+50% 100%
+);
+
+border-bottom:1px solid #c9a64a;
+
+z-index:4;
+
+transform-origin:top;
+
+transition:
+transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+
+/* SCEAU */
+
+.envelope-seal{
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:
+translate(-50%,-50%);
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+
+radial-gradient(
+circle,
+#f4dda0,
+#9b7628 70%,
+#604615
+);
+
+color:#201807;
+
+font-size:25px;
+
+box-shadow:
+
+0 0 15px rgba(244,221,160,.5),
+
+0 0 35px rgba(201,166,74,.2);
+
+z-index:5;
+
+transition:
+opacity .5s,
+transform .7s;
+}
+
+
+/* OUVERTURE */
+
+.opening-screen.open
+.envelope-flap{
+
+transform:rotateX(180deg);
+}
+
+.opening-screen.open
+.envelope-letter{
+
+transform:translateY(-52%);
+}
+
+.opening-screen.open
+.envelope-seal{
+
+opacity:0;
+
+transform:
+translate(-50%,-50%)
+scale(1.5);
+}
+
+
+/* BOUTON */
+
+.open-button{
+
+width:280px;
+
+margin-top:45px;
+
+padding:14px;
+
+border:1px solid #c9a64a;
+
+background:transparent;
+
+color:#f4dda0;
+
+font:13px Arial,sans-serif;
+
+letter-spacing:2px;
+
+cursor:pointer;
+}
+
+.opening-hint{
+
+margin-top:14px;
+
+color:#8f815f;
+
+font:11px Arial,sans-serif;
+
+letter-spacing:1px;
+}
+
+
+/* ================================
    MOBILE
-===================================================== */
+================================ */
 
 @media(max-width:600px){
 
 .creator{
-
 padding:20px 15px;
 }
 
 .creator h1{
-
 font-size:29px;
 }
 
@@ -737,27 +796,18 @@ padding:70px 18px;
 }
 
 .names{
-
 font-size:39px;
 }
 
 .message{
-
 font-size:15px;
 }
 
-}
+.envelope{
 
-/* =====================================================
-   REDUCTION DES ANIMATIONS SI NECESSAIRE
-===================================================== */
+width:290px;
 
-@media(prefers-reduced-motion:reduce){
-
-.gold-wind span,
-.spark{
-
-animation:none;
+height:190px;
 }
 
 }
@@ -766,12 +816,13 @@ animation:none;
 
 </head>
 
+
 <body>
 
 
-<!-- =====================================================
+<!-- ================================
      CREATEUR
-===================================================== -->
+================================ -->
 
 <div class="creator">
 
@@ -779,62 +830,57 @@ animation:none;
 
 <div class="form">
 
-<label>
-Prénom du marié
-</label>
+<label>Prénom du marié</label>
 
 <input
 id="groom"
 placeholder="Exemple : Amine"
 >
 
-<label>
-Prénom de la mariée
-</label>
+
+<label>Prénom de la mariée</label>
 
 <input
 id="bride"
 placeholder="Exemple : Sarah"
 >
 
-<label>
-Date et heure
-</label>
+
+<label>Date et heure</label>
 
 <input
 id="date"
 type="datetime-local"
 >
 
-<label>
-Nom de la salle
-</label>
+
+<label>Nom de la salle</label>
 
 <input
 id="venue"
 placeholder="Salle des Fêtes"
 >
 
-<label>
-Lien Google Maps
-</label>
+
+<label>Lien Google Maps</label>
 
 <input
 id="maps"
 placeholder="Lien Google Maps"
 >
 
-<label>
-Message
-</label>
+
+<label>Message</label>
 
 <textarea id="message">Nous avons le plaisir de vous inviter à partager avec nous ce jour si particulier.</textarea>
+
 
 <button onclick="generate()">
 
 ✨ Générer mon invitation
 
 </button>
+
 
 <div id="result"></div>
 
@@ -843,14 +889,13 @@ Message
 </div>
 
 
-<!-- =====================================================
+
+<!-- ================================
      INVITATION
-===================================================== -->
+================================ -->
 
 <div class="invitation">
 
-
-<!-- poussière d'or -->
 
 <div class="gold-wind">
 
@@ -875,19 +920,11 @@ Message
 </div>
 
 
-<!-- éclats -->
+<div class="spark one">✦</div>
 
-<div class="spark one">
-✦
-</div>
+<div class="spark two">✧</div>
 
-<div class="spark two">
-✧
-</div>
-
-<div class="spark three">
-✦
-</div>
+<div class="spark three">✦</div>
 
 
 <div class="small">
@@ -903,24 +940,18 @@ NOTRE MARIAGE
 id="groomDisplay"
 class="gold"
 >
-
 Amine
-
 </span>
 
 <span class="gold">
-
 &
-
 </span>
 
 <span
 id="brideDisplay"
 class="gold"
 >
-
 Sarah
-
 </span>
 
 </div>
@@ -961,9 +992,7 @@ Compte à rebours
 📍
 
 <span id="venueDisplay">
-
 Salle des Fêtes
-
 </span>
 
 </p>
@@ -991,18 +1020,153 @@ Votre présence sera notre plus beau cadeau
 </div>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+
+<!-- ================================
+     OUVERTURE PREMIUM
+================================ -->
+
+<div
+class="opening-screen"
+id="openingScreen"
+>
+
+
+<div class="opening-title">
+
+UNE INVITATION VOUS ATTEND
+
+</div>
+
+
+<div class="envelope">
+
+
+<div class="envelope-body">
+</div>
+
+
+<div class="envelope-letter">
+</div>
+
+
+<div class="envelope-flap">
+</div>
+
+
+<div class="envelope-seal">
+
+✦
+
+</div>
+
+
+</div>
+
+
+<button
+class="open-button"
+onclick="openInvitation()"
+>
+
+OUVRIR L’INVITATION ✦
+
+</button>
+
+
+<div class="opening-hint">
+
+Une expérience créée avec amour
+
+</div>
+
+
+</div>
+
+
 
 <script>
+
 
 let weddingDate;
 
 
-/* =====================================================
+/* ================================
+   AFFICHAGE
+================================ */
+
+function setInvitation(
+groom,
+bride,
+date,
+venue,
+maps,
+message
+){
+
+document
+.getElementById("groomDisplay")
+.innerText =
+groom || "";
+
+document
+.getElementById("brideDisplay")
+.innerText =
+bride || "";
+
+document
+.getElementById("venueDisplay")
+.innerText =
+venue || "";
+
+document
+.getElementById("messageDisplay")
+.innerText =
+message || "";
+
+
+if(date){
+
+weddingDate =
+new Date(date);
+
+document
+.getElementById("dateDisplay")
+.innerText =
+
+weddingDate.toLocaleString(
+"fr-FR",
+{
+day:"2-digit",
+month:"long",
+year:"numeric",
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+}
+
+
+if(maps){
+
+const a =
+document
+.getElementById("mapsDisplay");
+
+a.href =
+maps;
+
+a.style.display =
+"inline-block";
+
+}
+
+}
+
+
+/* ================================
    GENERATION
-===================================================== */
+================================ */
 
 function generate(){
 
@@ -1053,71 +1217,19 @@ return;
 }
 
 
-/* affichage */
-
-document
-.getElementById("groomDisplay")
-.innerText =
-groom;
-
-document
-.getElementById("brideDisplay")
-.innerText =
-bride;
-
-document
-.getElementById("venueDisplay")
-.innerText =
-venue;
-
-document
-.getElementById("messageDisplay")
-.innerText =
-message;
-
-
-/* date */
-
-weddingDate =
-new Date(date);
-
-document
-.getElementById("dateDisplay")
-.innerText =
-
-weddingDate.toLocaleString(
-"fr-FR",
-{
-day:"2-digit",
-month:"long",
-year:"numeric",
-hour:"2-digit",
-minute:"2-digit"
-}
+setInvitation(
+groom,
+bride,
+date,
+venue,
+maps,
+message
 );
 
 
-/* maps */
-
-if(maps){
-
-const a =
-document
-.getElementById("mapsDisplay");
-
-a.href =
-maps;
-
-a.style.display =
-"inline-block";
-
-}
-
-
-/* lien */
-
 const params =
 new URLSearchParams();
+
 
 params.set(
 "groom",
@@ -1175,9 +1287,9 @@ link +
 }
 
 
-/* =====================================================
-   CHARGEMENT
-===================================================== */
+/* ================================
+   CHARGEMENT INVITATION
+================================ */
 
 function load(){
 
@@ -1192,7 +1304,7 @@ if(!params.has("groom"))
 return;
 
 
-/* cacher création */
+/* cacher créateur */
 
 document
 .querySelector(".creator")
@@ -1200,93 +1312,62 @@ document
 "none";
 
 
-const groom =
-params.get("groom");
+setInvitation(
 
-const bride =
-params.get("bride");
+params.get("groom"),
 
-const date =
-params.get("date");
+params.get("bride"),
 
-const venue =
-params.get("venue");
+params.get("date"),
 
-const maps =
-params.get("maps");
+params.get("venue"),
 
-const message =
-params.get("message");
+params.get("maps"),
+
+params.get("message")
+
+);
 
 
-document
-.getElementById("groomDisplay")
-.innerText =
-groom;
+/* afficher enveloppe */
 
 document
-.getElementById("brideDisplay")
-.innerText =
-bride;
+.getElementById("openingScreen")
+.style.display =
+"flex";
 
-document
-.getElementById("venueDisplay")
-.innerText =
-venue;
-
-document
-.getElementById("messageDisplay")
-.innerText =
-message;
-
-
-/* date */
-
-if(date){
-
-weddingDate =
-new Date(date);
-
-document
-.getElementById("dateDisplay")
-.innerText =
-
-weddingDate.toLocaleString(
-"fr-FR",
-{
-day:"2-digit",
-month:"long",
-year:"numeric",
-hour:"2-digit",
-minute:"2-digit"
 }
+
+
+/* ================================
+   OUVRIR
+================================ */
+
+function openInvitation(){
+
+const screen =
+document
+.getElementById("openingScreen");
+
+
+screen.classList.add("open");
+
+
+setTimeout(
+function(){
+
+screen.classList.add("hide");
+
+},
+1800
 );
 
 }
 
 
-/* maps */
-
-if(maps){
-
-const a =
-document
-.getElementById("mapsDisplay");
-
-a.href =
-maps;
-
-a.style.display =
-"inline-block";
-
-}
-
-}
-
-
-/* =====================================================
+/* ================================
    COMPTE A REBOURS
-===================================================== */
+================================ */
 
 function countdown(){
 
@@ -1305,7 +1386,6 @@ if(difference <= 0){
 document
 .getElementById("countdown")
 .innerText =
-
 "C'est le grand jour ! ❤️";
 
 return;
@@ -1320,6 +1400,7 @@ difference /
 86400000
 );
 
+
 const hours =
 
 Math.floor(
@@ -1327,12 +1408,14 @@ difference /
 3600000
 ) % 24;
 
+
 const minutes =
 
 Math.floor(
 difference /
 60000
 ) % 60;
+
 
 const seconds =
 
@@ -1361,9 +1444,9 @@ seconds +
 }
 
 
-/* =====================================================
+/* ================================
    LANCEMENT
-===================================================== */
+================================ */
 
 load();
 
@@ -1374,6 +1457,7 @@ countdown,
 
 </script>
 
+
 </body>
 
-  </html>
+</html>
